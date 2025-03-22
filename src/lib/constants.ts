@@ -1,5 +1,6 @@
 import { Users, Coins, Bell, Mail, MailOpen, User } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { JSX } from 'react';
 
 // Navigation items
 export type NavItem = {
@@ -75,29 +76,29 @@ export const bottomNavItems: NavItem[] = [
 export type StatCard = {
   title: string;
   value: number;
-  icon: LucideIcon;
+  icon: string;
 };
 
 export const statsData: StatCard[] = [
   {
     title: 'Online users',
     value: 6522,
-    icon: User,
+    icon: 'userIconSvg',
   },
   {
     title: 'new signups',
     value: 685,
-    icon: Users,
+    icon: 'userAvatar',
   },
   {
     title: 'New Subscribers',
     value: 474,
-    icon: Mail,
+    icon: 'mail',
   },
   {
     title: 'Unsubscribes',
     value: 8,
-    icon: MailOpen,
+    icon: 'mailOpen',
   },
 ];
 
@@ -110,7 +111,14 @@ export type UserItem = {
   label: string;
   badge?: string;
   avatarUrl?: string;
+  isImage?:boolean
 };
+
+export type userData = {
+  headerTitle: string;
+  userList: UserItem[];
+  headerAction: JSX.Element;
+}[]
 
 export const hallOfFarmers: UserItem[] = [
   {
@@ -119,6 +127,7 @@ export const hallOfFarmers: UserItem[] = [
     date: '12.10.2024',
     value: 7500,
     label: 'Spent',
+    isImage:true,
   },
   {
     username: '@MikeReyes',
@@ -126,6 +135,7 @@ export const hallOfFarmers: UserItem[] = [
     date: '12.10.2024',
     value: 7500,
     label: 'Spent',
+    isImage:true,
   },
   {
     username: '@MikeReyes',
@@ -133,6 +143,7 @@ export const hallOfFarmers: UserItem[] = [
     date: '12.10.2024',
     value: 7500,
     label: 'Spent',
+    isImage:true,
   },
   {
     username: '@MikeReyes',
@@ -140,6 +151,7 @@ export const hallOfFarmers: UserItem[] = [
     date: '12.10.2024',
     value: 7500,
     label: 'Spent',
+    isImage:true,
   },
 ];
 
@@ -185,7 +197,7 @@ export type FinancialItem = {
   title: string;
   value: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
   color: string;
 };
 
@@ -194,21 +206,21 @@ export const financialData: FinancialItem[] = [
     title: 'Total Income',
     value: '$50 000',
     description: 'Total Income',
-    icon: Coins,
+    icon: 'dollar',
     color: 'bg-purple-600',
   },
   {
     title: 'Income from Subscriptions',
     value: '$20 000',
     description: 'Income from Subscriptions',
-    icon: Bell,
+    icon: 'dataBase',
     color: 'bg-cyan-500',
   },
   {
     title: 'Income from Ocoin Purchases',
     value: '$30 000',
     description: 'Income from Ocoin Purchases',
-    icon: Coins,
+    icon: 'income',
     color: 'bg-pink-500',
   },
 ];

@@ -2,30 +2,18 @@ import { cn } from '@/lib/utils';
 import SidebarMenuItem from './SidebarMenuItem';
 import SidebarMenuButton from './SidebarMenuButton';
 import { NavItem } from '@/lib/constants';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from 'lucide-react';
+import {  ChevronDown } from 'lucide-react';
 import Icon from '@/components/ui/icon';
+import { DropDownComponent } from '../ui/dropDownComponent';
 
 export default function SidebarMenu({
   className,
   list,
   withDropdown,
-  dropdownConfig,
   ...props
 }: React.ComponentProps<'ul'> & {
   list?: NavItem[];
   withDropdown?: boolean;
-  dropdownConfig?: {
-    versions: string[];
-    defaultVersion: string;
-    selectedVersion: string;
-    setSelectedVersion: (args: string) => void;
-  };
 }) {
   return (
     <>
@@ -55,39 +43,12 @@ export default function SidebarMenu({
         </ul>
       ) : withDropdown ? (
         <SidebarMenuItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <SidebarMenuButton
-                size='lg'
-                className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
-              >
-                <div className='bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg'>
-                  <GalleryVerticalEnd className='size-4' />
-                </div>
-                <div className='flex flex-col gap-0.5 leading-none'>
-                  <span className='font-medium'>Documentation</span>
-                  <span className=''>v{dropdownConfig?.selectedVersion}</span>
-                </div>
-                <ChevronsUpDown className='ml-auto' />
-              </SidebarMenuButton>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className='w-(--radix-dropdown-menu-trigger-width)'
-              align='start'
-            >
-              {dropdownConfig?.versions.map((version) => (
-                <DropdownMenuItem
-                  key={version}
-                  onSelect={() => dropdownConfig?.setSelectedVersion(version)}
-                >
-                  v{version}{' '}
-                  {version === dropdownConfig?.selectedVersion && (
-                    <Check className='ml-auto' />
-                  )}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <DropDownComponent
+            label='This Month'
+            items={['This Week', 'This Month', 'This Year']}
+            icon={<ChevronDown className='ml-2 h-4 w-4' />}
+            startIcon={<Icon iconName={'calender'} />}
+          />
         </SidebarMenuItem>
       ) : null}
     </>
