@@ -1,6 +1,5 @@
 import { ProductItem } from "@/lib/constants";
 import { GradientBorder } from "../ui/gradient-border";
-import { CopyCheck, Download, Eye } from "lucide-react";
 import Icon from "../ui/icon";
 
 export function ProductListItem(productItem:{product:ProductItem,index:number}) {

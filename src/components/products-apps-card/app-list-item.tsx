@@ -1,6 +1,5 @@
 import { AppUsageItem } from "@/lib/constants";
 import { GradientBorder } from "../ui/gradient-border";
-import { LayoutGrid } from "lucide-react";
 import Icon from "../ui/icon";
 
 export function AppListItem(appItem:{app:AppUsageItem,index:number}) {
