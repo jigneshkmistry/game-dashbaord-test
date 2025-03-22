@@ -1,5 +1,3 @@
-import { Users, Coins, Bell, Mail, MailOpen, User } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
 import { JSX } from 'react';
 
 // Navigation items
