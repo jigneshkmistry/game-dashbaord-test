@@ -14,7 +14,7 @@ export function Header() {
         <div className='flex items-center gap-4'>
           <Icon iconName='bell' withGradient />
           <HeaderUserPanel
-            user={{ name: 'Admin', email: '@Admin', img: '/assets/admin.png' }}
+            user={{ name: 'Admin Name', email: '@Admin', img: '/assets/admin.png' }}
           />
         </div>
       </div>
